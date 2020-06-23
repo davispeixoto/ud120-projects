@@ -26,5 +26,35 @@ features_train, features_test, labels_train, labels_test = preprocess()
 ### your code goes here ###
 
 #########################################################
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
 
+#clf = SVC(kernel="linear")
+#clf = SVC(kernel='rbf')
+#clf = SVC(kernel='rbf', C=10.0)
+#clf = SVC(kernel='rbf', C=100.0)
+#clf = SVC(kernel='rbf', C=1000.0)
+clf = SVC(kernel='rbf', C=10000.0)
 
+#features_train = features_train[:len(features_train)/100]
+#labels_train = labels_train[:len(labels_train)/100]
+
+t0 = time()
+model = clf.fit(features_train, labels_train)
+print "training time:", round(time()-t0, 3), "s"
+
+t1 = time()
+pred = model.predict(features_test)
+print "predicting time:", round(time()-t1, 3), "s"
+
+accuracy = accuracy_score(labels_test, pred)
+print accuracy
+
+# answers 10, 26 and 50
+# print pred[10]
+# print pred[26]
+# print pred[50]
+
+# how many are predicted to be in the "Chris" (1) class?
+answer = [prediction for prediction in pred if prediction == 1]
+print len(answer)
