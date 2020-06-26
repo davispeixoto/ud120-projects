@@ -46,6 +46,19 @@ enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "rb"
 #print(andy_payment)
 #print(jeff_payment)
 
-no_salary = [person for person, features_dict in enron_data.items() if features_dict['salary'] == 'NaN']
-print(len(enron_data) - len(no_salary))
+enron_data_people_amount = len(enron_data)
+print(enron_data_people_amount)
 
+no_salary = len([person for person, features_dict in enron_data.items() if features_dict['salary'] == 'NaN'])
+print("No salary data " + str(enron_data_people_amount - no_salary))
+
+no_email = len([person for person, features_dict in enron_data.items() if features_dict['email_address'] == 'NaN'])
+print("No salary data " + str(enron_data_people_amount - no_email))
+
+no_total_payments = len([person for person, features_dict in enron_data.items() if features_dict['total_payments'] == 'NaN'])
+print(no_total_payments)
+print(no_total_payments / float(enron_data_people_amount))
+
+poi_no_total_payments = len([person for person, features_dict in enron_data.items() if features_dict['total_payments'] == 'NaN' and features_dict['poi'] == True])
+print(poi_no_total_payments)
+print(poi_no_total_payments / float(enron_data_people_amount))
