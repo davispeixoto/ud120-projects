@@ -78,3 +78,5 @@ plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
 plt.show()
+
+print("New slope: " + str(reg.coef_[0]))
