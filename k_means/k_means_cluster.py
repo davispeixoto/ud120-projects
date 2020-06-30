@@ -45,8 +45,8 @@ data_dict.pop("TOTAL", 0)
 
 # feature_under_analysis = []
 # for features_dict in data_dict.values():
-#     if features_dict['salary'] != 'NaN':
-#         feature_under_analysis.append(features_dict['salary'])
+#     if features_dict['exercised_stock_options'] != 'NaN':
+#         feature_under_analysis.append(features_dict['exercised_stock_options'])
 #
 # feature_under_analysis = sorted(feature_under_analysis)
 # for i in range(len(feature_under_analysis)):
