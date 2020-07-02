@@ -50,9 +50,9 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
 
             ### use str.replace() to remove any instances of the words
             ### ["sara", "shackleton", "chris", "germani"]
-            removal_words = ["sara", "shackleton", "chris", "germani"]
+            removal_words = ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]
 
-            for i in range(len(["sara", "shackleton", "chris", "germani"])):
+            for i in range(len(removal_words)):
                 text = text.replace(removal_words[i], '')
 
             ### append the text to word_data
@@ -87,4 +87,3 @@ features = vectorizer.get_feature_names()
 print(len(features))
 print(features[34597])
 print(features[34596])
-print(features[34598])

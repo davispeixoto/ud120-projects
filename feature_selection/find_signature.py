@@ -38,6 +38,37 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
+from sklearn.tree import DecisionTreeClassifier
 
+regressor = DecisionTreeClassifier()
+regressor.fit(features_train, labels_train)
+print(regressor.score(features_test, labels_test))
 
+# bigger = 0
+# index = 0
+#
+# for i in range(len(regressor.feature_importances_)):
+#     if regressor.feature_importances_[i] > bigger:
+#         bigger = regressor.feature_importances_[i]
+#         index = i
+#
+# print(bigger)
+# print(index)
 
+outliers = []
+threshold = 0.2
+index = 0
+
+for i in range(len(regressor.feature_importances_)):
+    if regressor.feature_importances_[i] > threshold:
+        index = i
+        print(i)
+        print(regressor.feature_importances_[i])
+        print('----')
+
+# features_importances_filtered = [feature for feature in regressor.feature_importances_ if feature > 0.2]
+# features_importances_sorted = sorted(features_importances_filtered)
+# # print(features_importances_sorted.pop())
+
+features = vectorizer.get_feature_names()
+print(features[index])
