@@ -72,7 +72,7 @@ print "Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.
 t0 = time()
 pca = RandomizedPCA(n_components=n_components, whiten=True).fit(X_train)
 print "done in %0.3fs" % (time() - t0)
-
+print "The components are %s and %s" % (str(pca.explained_variance_ratio_[0]), str(pca.explained_variance_ratio_[1]))
 eigenfaces = pca.components_.reshape((n_components, h, w))
 
 print "Projecting the input data on the eigenfaces orthonormal basis"
@@ -132,6 +132,7 @@ def title(y_pred, y_test, target_names, i):
     pred_name = target_names[y_pred[i]].rsplit(' ', 1)[-1]
     true_name = target_names[y_test[i]].rsplit(' ', 1)[-1]
     return 'predicted: %s\ntrue:      %s' % (pred_name, true_name)
+
 
 prediction_titles = [title(y_pred, y_test, target_names, i)
                          for i in range(y_pred.shape[0])]
